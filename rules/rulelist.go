@@ -113,7 +113,7 @@ func Generate(trackSuppressions bool, filters ...RuleFilter) RuleList {
 		{"G801", "Detect the use of random number", NewUsesRandFunc},
 		{"G802", "Detect the use of system time", NewUsesSystemTime},
 		//{"G803", "Detect the use of for-range-map", NewUsesForRangeMap},
-		//{"G804", "Detect the use of global variables", NewUsesGlobalVars},
+		{"G804", "Detect the use of global variables", NewUsesGlobalVars},
 		{"G805", "Detect the use of goroutines", NewUsesGoroutine},
 	}
 
