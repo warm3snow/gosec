@@ -108,6 +108,13 @@ func Generate(trackSuppressions bool, filters ...RuleFilter) RuleList {
 
 		// memory safety
 		{"G601", "Implicit memory aliasing in RangeStmt", NewImplicitAliasing},
+
+		// smart contract safety
+		{"G801", "Detect the use of random number", NewUsesRandFunc},
+		//{"G802", "Detect the use of system time", NewUsesSystemTime},
+		//{"G803", "Detect the use of for-range-map", NewUsesForRangeMap},
+		//{"G804", "Detect the use of global variables", NewUsesGlobalVars},
+		//{"G805", "Detect the use of multi-thread or goroutines", NewUsesThread},
 	}
 
 	ruleMap := make(map[string]RuleDefinition)
