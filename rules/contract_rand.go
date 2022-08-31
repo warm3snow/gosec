@@ -16,12 +16,12 @@ func (u *useRand) ID() string {
 	return u.MetaData.ID
 }
 
-func containsRandCall(node ast.Node, ctx *gosec.Context, list gosec.CallList) bool {
-	if list.ContainsPkgCallExpr(node, ctx, false) != nil {
-		return true
-	}
-	return false
-}
+//func containsRandCall(node ast.Node, ctx *gosec.Context, list gosec.CallList) bool {
+//	if list.ContainsPkgCallExpr(node, ctx, false) != nil {
+//		return true
+//	}
+//	return false
+//}
 
 func (u *useRand) Match(node ast.Node, ctx *gosec.Context) (*gosec.Issue, error) {
 	aliasMap := GetAliasMap(ctx)
