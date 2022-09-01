@@ -108,13 +108,10 @@ func Generate(trackSuppressions bool, filters ...RuleFilter) RuleList {
 
 		// memory safety
 		{"G601", "Implicit memory aliasing in RangeStmt", NewImplicitAliasing},
+	}
 
-		// smart contract safety
-		{"G801", "Detect the use of random number", NewUsesRandFunc},
-		{"G802", "Detect the use of system time", NewUsesSystemTime},
-		{"G803", "Detect the use of for-range-map", NewUsesForMap},
-		{"G804", "Detect the use of global variables", NewUsesGlobalVars},
-		{"G805", "Detect the use of goroutines", NewUsesGoroutine},
+	for _, rule := range GetContractRules() {
+		rules = append(rules, rule)
 	}
 
 	ruleMap := make(map[string]RuleDefinition)
@@ -134,4 +131,15 @@ RULES:
 		ruleMap[rule.ID] = rule
 	}
 	return RuleList{ruleMap, ruleSuppressedMap}
+}
+
+func GetContractRules() []RuleDefinition {
+	return []RuleDefinition{
+		// smart contract safety
+		{"G801", "Detect the use of random number", NewUsesRandFunc},
+		{"G802", "Detect the use of system time", NewUsesSystemTime},
+		{"G803", "Detect the use of for-range-map", NewUsesForMap},
+		{"G804", "Detect the use of global variables", NewUsesGlobalVars},
+		{"G805", "Detect the use of goroutines", NewUsesGoroutine},
+	}
 }

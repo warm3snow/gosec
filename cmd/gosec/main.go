@@ -194,8 +194,9 @@ func loadConfig(configFile string) (gosec.Config, error) {
 	}
 	// set global option IncludeRules ,when flag set or global option IncludeRules  is nil
 	if v, _ := config.GetGlobal(gosec.IncludeRules); *flagRulesInclude != "" || v == "" {
-		config.SetGlobal(gosec.IncludeRules, *flagRulesInclude)
+		config.SetGlobal(gosec.IncludeRules, getRules())
 	}
+
 	// set global option ExcludeRules ,when flag set or global option IncludeRules  is nil
 	if v, _ := config.GetGlobal(gosec.ExcludeRules); flagRulesExclude.String() != "" || v == "" {
 		config.SetGlobal(gosec.ExcludeRules, flagRulesExclude.String())
@@ -463,4 +464,32 @@ func main() {
 	logWriter.Close() // #nosec
 
 	exit(issues, errors, *flagNoFail)
+}
+
+func getRules() string {
+	includeRuleNames := ""
+	// use contract rules if not set
+	if len(*flagRulesInclude) == 0 {
+		contractRules := rules.GetContractRules()
+		for _, rule := range contractRules {
+			includeRuleNames += fmt.Sprintf("%s,", rule.ID)
+		}
+	} else if strings.EqualFold(strings.ToLower(*flagConfig), "all") {
+		// sorted rule list for ease of reading
+		rl := rules.Generate(*flagTrackSuppressions)
+		keys := make([]string, 0, len(rl.Rules))
+		for key := range rl.Rules {
+			keys = append(keys, key)
+		}
+		sort.Strings(keys)
+		for _, k := range keys {
+			v := rl.Rules[k]
+			includeRuleNames += fmt.Sprintf("%s,", v.ID)
+		}
+	} else {
+		includeRuleNames = *flagRulesInclude
+	}
+
+	includeRuleNames = strings.TrimSuffix(includeRuleNames, ",")
+	return includeRuleNames
 }
