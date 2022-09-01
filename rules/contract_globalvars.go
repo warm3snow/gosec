@@ -47,7 +47,7 @@ func getGlobalVarNames(ctx *gosec.Context) map[string]struct{} {
 	return varNamesSet
 }
 
-// NewUsesGoroutine detects the use of goroutines
+// NewUsesGlobalVars detects the use of global variables
 func NewUsesGlobalVars(id string, conf gosec.Config) (gosec.Rule, []ast.Node) {
 	return &useGlobalVars{
 		MetaData: gosec.MetaData{
