@@ -17,7 +17,7 @@ package rules
 import (
 	"go/ast"
 
-	"github.com/securego/gosec/v2"
+	"github.com/warm3snow/gosec/v2"
 )
 
 type templateCheck struct {

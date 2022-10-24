@@ -3,7 +3,7 @@ package cwe_test
 import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	"github.com/securego/gosec/v2/cwe"
+	"github.com/warm3snow/gosec/v2/cwe"
 )
 
 var _ = Describe("CWE data", func() {

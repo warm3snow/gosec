@@ -6,7 +6,7 @@ import (
 	"html/template"
 	"io"
 
-	"github.com/securego/gosec/v2"
+	"github.com/warm3snow/gosec/v2"
 )
 
 //go:embed template.html

@@ -7,8 +7,8 @@ import (
 	"strings"
 
 	"github.com/google/uuid"
-	"github.com/securego/gosec/v2"
-	"github.com/securego/gosec/v2/cwe"
+	"github.com/warm3snow/gosec/v2"
+	"github.com/warm3snow/gosec/v2/cwe"
 )
 
 // GenerateReport Convert a gosec report to a Sarif Report
@@ -146,7 +146,7 @@ func parseSemanticVersion(version string) string {
 
 func buildSarifDriver(rules []*ReportingDescriptor, gosecVersion string) *ToolComponent {
 	semanticVersion := parseSemanticVersion(gosecVersion)
-	return NewToolComponent("gosec", gosecVersion, "https://github.com/securego/gosec/").
+	return NewToolComponent("gosec", gosecVersion, "https://github.com/warm3snow/gosec/").
 		WithSemanticVersion(semanticVersion).
 		WithSupportedTaxonomies(NewToolComponentReference(cwe.Acronym)).
 		WithRules(rules...)

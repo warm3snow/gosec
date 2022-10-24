@@ -8,7 +8,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/securego/gosec/v2"
+	"github.com/warm3snow/gosec/v2"
 	"golang.org/x/tools/go/packages"
 )
 

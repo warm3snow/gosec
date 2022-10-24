@@ -17,16 +17,16 @@ package report
 import (
 	"io"
 
-	"github.com/securego/gosec/v2"
-	"github.com/securego/gosec/v2/report/csv"
-	"github.com/securego/gosec/v2/report/golint"
-	"github.com/securego/gosec/v2/report/html"
-	"github.com/securego/gosec/v2/report/json"
-	"github.com/securego/gosec/v2/report/junit"
-	"github.com/securego/gosec/v2/report/sarif"
-	"github.com/securego/gosec/v2/report/sonar"
-	"github.com/securego/gosec/v2/report/text"
-	"github.com/securego/gosec/v2/report/yaml"
+	"github.com/warm3snow/gosec/v2"
+	"github.com/warm3snow/gosec/v2/report/csv"
+	"github.com/warm3snow/gosec/v2/report/golint"
+	"github.com/warm3snow/gosec/v2/report/html"
+	"github.com/warm3snow/gosec/v2/report/json"
+	"github.com/warm3snow/gosec/v2/report/junit"
+	"github.com/warm3snow/gosec/v2/report/sarif"
+	"github.com/warm3snow/gosec/v2/report/sonar"
+	"github.com/warm3snow/gosec/v2/report/text"
+	"github.com/warm3snow/gosec/v2/report/yaml"
 )
 
 // Format enumerates the output format for reported issues

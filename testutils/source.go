@@ -1,6 +1,6 @@
 package testutils
 
-import "github.com/securego/gosec/v2"
+import "github.com/warm3snow/gosec/v2"
 
 // CodeSample encapsulates a snippet of source code that compiles, and how many errors should be detected
 type CodeSample struct {
@@ -3321,7 +3321,7 @@ func main() {
 }`,
 		}, 1, gosec.NewConfig()},
 		{[]string{`
-// see: github.com/securego/gosec/issues/475
+// see: github.com/warm3snow/gosec/issues/475
 package main
 
 import (

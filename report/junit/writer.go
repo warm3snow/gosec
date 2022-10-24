@@ -4,7 +4,7 @@ import (
 	"encoding/xml"
 	"io"
 
-	"github.com/securego/gosec/v2"
+	"github.com/warm3snow/gosec/v2"
 )
 
 // WriteReport write a report in JUnit format to the output writer

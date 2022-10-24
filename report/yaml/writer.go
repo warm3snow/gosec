@@ -3,7 +3,7 @@ package yaml
 import (
 	"io"
 
-	"github.com/securego/gosec/v2"
+	"github.com/warm3snow/gosec/v2"
 	"gopkg.in/yaml.v2"
 )
 
