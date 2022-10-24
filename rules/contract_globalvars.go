@@ -52,8 +52,8 @@ func NewUsesGlobalVars(id string, conf gosec.Config) (gosec.Rule, []ast.Node) {
 	return &useGlobalVars{
 		MetaData: gosec.MetaData{
 			ID:         id,
-			Severity:   gosec.High,
-			Confidence: gosec.Medium,
+			Severity:   gosec.Medium,
+			Confidence: gosec.Low,
 			What:       "Use of global variables",
 		},
 	}, []ast.Node{(*ast.ValueSpec)(nil), (*ast.GenDecl)(nil)}
